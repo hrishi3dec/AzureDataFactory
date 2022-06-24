@@ -1,7 +1,0 @@
-{
-	"name": "SelfHostedintegrationRuntime-Dev",
-	"properties": {
-		"type": "SelfHosted",
-		"description": "SelfHostedintegrationRuntime-Dev Environment"
-	}
-}
