@@ -1,9 +1,0 @@
-{
-	"name": "datafactory-practice-hp",
-	"location": "eastus",
-	"identity": {
-		"type": "SystemAssigned",
-		"principalId": "4f7f14a3-5e9a-4ed0-a5c4-f872167c0a90",
-		"tenantId": "52a65525-ee31-4937-89ac-96f8182d35cf"
-	}
-}
