@@ -14,11 +14,17 @@
 		"ls_adls_covidreportdl2145_properties_typeProperties_url": {
 			"value": "https://covidreportdl2145.dfs.core.windows.net/"
 		},
+		"ls_ecdc_europa_eu_http_properties_typeProperties_url": {
+			"value": "https://github.com"
+		},
 		"tr_ingest_population_data_properties_typeProperties_scope": {
 			"value": "/subscriptions/4bcd7908-5af3-444d-ba38-86d7c2b280f7/resourceGroups/covid-reporting-hp-rg/providers/Microsoft.Storage/storageAccounts/covidreportingsa2145"
 		},
-		"ls_ecdc_europa_eu_http_properties_typeProperties_url": {
-			"value": "https://github.com"
+		"tr_ingest_hospital_admissions_data_properties_pl_ingest_ecdc_data_parameters_sourceRelativeURL": {
+			"value": "cloudboxacademy/covid19/raw/main/ecdc_data/hospital_admissions.csv"
+		},
+		"tr_ingest_hospital_admissions_data_properties_pl_ingest_ecdc_data_parameters_sinkFileName": {
+			"value": "hospital_admissions.csv"
 		}
 	}
 }
