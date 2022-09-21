@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "ds_raw_hospital_admissions_data",
+						"referenceName": "ds_raw_hospital_admissions",
 						"type": "DatasetReference"
 					},
 					"name": "HospitalAdmissionSourceData"
@@ -15,7 +15,16 @@
 			"sinks": [],
 			"transformations": [],
 			"scriptLines": [
-				"source(allowSchemaDrift: true,",
+				"source(output(",
+				"          country as string,",
+				"          indicator as string,",
+				"          date as date,",
+				"          year_week as string,",
+				"          value as double,",
+				"          source as string,",
+				"          url as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> HospitalAdmissionSourceData"
 			]
