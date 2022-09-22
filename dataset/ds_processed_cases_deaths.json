@@ -1,24 +1,17 @@
 {
-	"name": "ds_cases_deaths_raw_csv_http",
+	"name": "ds_processed_cases_deaths",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_ecdc_europa_eu_http",
+			"referenceName": "ls_adls_covidreportdl2145",
 			"type": "LinkedServiceReference"
-		},
-		"parameters": {
-			"relativeURL": {
-				"type": "string"
-			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "HttpServerLocation",
-				"relativeUrl": {
-					"value": "@dataset().relativeURL",
-					"type": "Expression"
-				}
+				"type": "AzureBlobFSLocation",
+				"folderPath": "ecdc/cases_deaths",
+				"fileSystem": "processed"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
