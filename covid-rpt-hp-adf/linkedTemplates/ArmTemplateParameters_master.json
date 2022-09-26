@@ -11,6 +11,9 @@
 		"ls_adls_covidreportdl2145_accountKey": {
 			"value": ""
 		},
+		"ls_db_covid_cluster_accessToken": {
+			"value": ""
+		},
 		"ls_adls_covidreportdl2145_properties_typeProperties_url": {
 			"value": "https://covidreportdl2145.dfs.core.windows.net/"
 		},
