@@ -23,6 +23,9 @@
 		"tr_ingest_population_data_properties_typeProperties_scope": {
 			"value": "/subscriptions/4bcd7908-5af3-444d-ba38-86d7c2b280f7/resourceGroups/covid-reporting-hp-rg/providers/Microsoft.Storage/storageAccounts/covidreportingsa2145"
 		},
+		"ls_db_covid_cluster_properties_typeProperties_existingClusterId": {
+			"value": "0926-110458-4z291m3w"
+		},
 		"containerUri": {
 			"value": ""
 		},

@@ -26,6 +26,10 @@
 		"ls_ecdc_europa_eu_http_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "@{linkedService().baseURL}"
+		},
+		"ls_db_covid_cluster_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0926-110458-4z291m3w"
 		}
 	},
 	"variables": {
@@ -98,14 +102,7 @@
 						"type": "SecureString",
 						"value": "[parameters('ls_db_covid_cluster_accessToken')]"
 					},
-					"newClusterNodeType": "Standard_DS3_v2",
-					"newClusterNumOfWorker": "1",
-					"newClusterSparkEnvVars": {
-						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
-					},
-					"newClusterVersion": "7.3.x-hls-scala2.12",
-					"newClusterInitScripts": [],
-					"clusterOption": "Fixed"
+					"existingClusterId": "[parameters('ls_db_covid_cluster_properties_typeProperties_existingClusterId')]"
 				}
 			},
 			"dependsOn": []
