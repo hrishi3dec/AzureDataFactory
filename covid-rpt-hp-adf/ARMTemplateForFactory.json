@@ -1097,8 +1097,9 @@
 					"recurrence": {
 						"frequency": "Day",
 						"interval": 1,
-						"startTime": "2022-09-19T19:26:00",
-						"timeZone": "India Standard Time"
+						"startTime": "2022-09-26T20:04:00",
+						"timeZone": "India Standard Time",
+						"schedule": {}
 					}
 				}
 			},
