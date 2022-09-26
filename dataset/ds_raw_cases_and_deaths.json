@@ -5,6 +5,9 @@
 			"referenceName": "ls_adls_covidreportdl2145",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "Raw"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
