@@ -60,6 +60,9 @@
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
 				},
+				"folder": {
+					"name": "Process"
+				},
 				"annotations": []
 			},
 			"dependsOn": []
