@@ -1,0 +1,9 @@
+{
+	"name": "databricks-hp-adf",
+	"location": "uksouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "63298a19-a427-43d2-834f-902e63dd1d9d",
+		"tenantId": "62f5f6e8-afea-409f-8eb0-bf8e6ba3e17d"
+	}
+}

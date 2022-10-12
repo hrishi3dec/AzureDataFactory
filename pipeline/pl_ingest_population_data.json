@@ -1,7 +1,6 @@
 {
 	"name": "pl_ingest_population_data",
 	"properties": {
-		"description": "pipeline to ingest population data",
 		"activities": [
 			{
 				"name": "check if file exists",
@@ -13,13 +12,13 @@
 						"referenceName": "ds_population_raw_gz",
 						"type": "DatasetReference"
 					},
-					"timeout": "0.00:00:30",
+					"timeout": "0.00:10:00",
 					"sleep": 10,
 					"minimumSize": 1024
 				}
 			},
 			{
-				"name": "Get Metadata",
+				"name": "Get File Metadata",
 				"type": "GetMetadata",
 				"dependsOn": [
 					{
@@ -30,8 +29,8 @@
 					}
 				],
 				"policy": {
-					"timeout": "0.01:00:00",
-					"retry": 3,
+					"timeout": "0.12:00:00",
+					"retry": 0,
 					"retryIntervalInSeconds": 30,
 					"secureOutput": false,
 					"secureInput": false
@@ -49,6 +48,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -57,11 +57,11 @@
 				}
 			},
 			{
-				"name": "If Condition",
+				"name": "If Column count matches",
 				"type": "IfCondition",
 				"dependsOn": [
 					{
-						"activity": "Get Metadata",
+						"activity": "Get File Metadata",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -70,38 +70,18 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@equals(activity('Get Metadata').output.columnCount,13)",
+						"value": "@equals(activity('Get File Metadata').output.columnCount, 13)",
 						"type": "Expression"
 					},
-					"ifFalseActivities": [
-						{
-							"name": "Send email",
-							"type": "WebActivity",
-							"dependsOn": [],
-							"policy": {
-								"timeout": "0.12:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"userProperties": [],
-							"typeProperties": {
-								"url": "http://testemail",
-								"method": "POST",
-								"body": "sdsda"
-							}
-						}
-					],
 					"ifTrueActivities": [
 						{
-							"name": "Copy population data",
+							"name": "copy population data",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
 								"timeout": "0.00:05:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
+								"retry": 1,
+								"retryIntervalInSeconds": 60,
 								"secureOutput": false,
 								"secureInput": false
 							},
@@ -132,6 +112,164 @@
 								"enableStaging": false,
 								"translator": {
 									"type": "TabularTranslator",
+									"mappings": [
+										{
+											"source": {
+												"name": "indic_de,geo\\time",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "indic_de,geo\\time",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "2008 ",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "2008 ",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "2009 ",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "2009 ",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "2010 ",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "2010 ",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "2011 ",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "2011 ",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "2012 ",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "2012 ",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "2013 ",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "2013 ",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "2014 ",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "2014 ",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "2015 ",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "2015 ",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "2016 ",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "2016 ",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "2017 ",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "2017 ",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "2018 ",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "2018 ",
+												"type": "String",
+												"physicalType": "String"
+											}
+										},
+										{
+											"source": {
+												"name": "2019 ",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "2019 ",
+												"type": "String",
+												"physicalType": "String"
+											}
+										}
+									],
 									"typeConversion": true,
 									"typeConversionSettings": {
 										"allowDataTruncation": true,
@@ -153,11 +291,11 @@
 							]
 						},
 						{
-							"name": "Delete",
+							"name": "delete source file",
 							"type": "Delete",
 							"dependsOn": [
 								{
-									"activity": "Copy population data",
+									"activity": "copy population data",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -188,6 +326,11 @@
 				}
 			}
 		],
-		"annotations": []
-	}
+		"folder": {
+			"name": "Ingest"
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-09-30T04:56:05Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

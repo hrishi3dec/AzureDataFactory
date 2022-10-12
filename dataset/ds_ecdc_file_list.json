@@ -2,7 +2,7 @@
 	"name": "ds_ecdc_file_list",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_ablob_covidreportingsa2145",
+			"referenceName": "ls_ablob_databrickshpsa1234",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -11,19 +11,10 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "ecdc_file_list.json",
-				"container": "configs"
+				"container": "config"
 			}
 		},
-		"schema": {
-			"type": "object",
-			"properties": {
-				"sourceRelativeURL": {
-					"type": "string"
-				},
-				"sinkFileName": {
-					"type": "string"
-				}
-			}
-		}
-	}
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }

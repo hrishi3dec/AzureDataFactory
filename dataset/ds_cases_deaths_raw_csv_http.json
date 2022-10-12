@@ -1,9 +1,14 @@
 {
-	"name": "ds_population_raw_tsv",
+	"name": "ds_cases_deaths_raw_csv_http",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_adls_databrickshpdl1234",
+			"referenceName": "ls_http_opendata_ecdc_europa_eu",
 			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"relativeURL": {
+				"type": "string"
+			}
 		},
 		"folder": {
 			"name": "Raw"
@@ -12,12 +17,13 @@
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobFSLocation",
-				"fileName": "population_by_age.tsv",
-				"folderPath": "population",
-				"fileSystem": "raw"
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "@dataset().relativeURL",
+					"type": "Expression"
+				}
 			},
-			"columnDelimiter": "\t",
+			"columnDelimiter": ",",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""

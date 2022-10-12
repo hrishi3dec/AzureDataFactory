@@ -1,9 +1,14 @@
 {
-	"name": "ds_population_raw_tsv",
+	"name": "ds_cases_deaths_raw_csv_dl",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adls_databrickshpdl1234",
 			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"fileName": {
+				"type": "string"
+			}
 		},
 		"folder": {
 			"name": "Raw"
@@ -13,13 +18,15 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "population_by_age.tsv",
-				"folderPath": "population",
+				"fileName": {
+					"value": "@dataset().fileName",
+					"type": "Expression"
+				},
+				"folderPath": "ecdc",
 				"fileSystem": "raw"
 			},
-			"columnDelimiter": "\t",
+			"columnDelimiter": ",",
 			"escapeChar": "\\",
-			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": []
